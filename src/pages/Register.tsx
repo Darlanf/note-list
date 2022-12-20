@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Button, Grid, TextField, Typography } from '@mui/material';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { useNavigate } from 'react-router-dom';
-import AdbIcon from '@mui/icons-material/Adb';
+import AssignmentIcon from '@mui/icons-material/Assignment';
 import { register } from '../store/modules/LoginSlice';
 
 const Register: React.FC = () => {
@@ -32,6 +32,8 @@ const Register: React.FC = () => {
         })
       );
       navigate('/login');
+    } else {
+      alert('Preencha todos os campos! \nEmail e senha precisam ter pelo menos 6 digitos');
     }
   };
   const handleToLogin = () => {
@@ -43,8 +45,8 @@ const Register: React.FC = () => {
       <Grid item xs={12} sm={6}>
         <Grid container spacing={2}>
           <Grid item xs={12} display="flex" justifyContent="center">
-            <AdbIcon fontSize="large" />
             <Typography variant="h4">GrowNotes</Typography>
+            <AssignmentIcon fontSize="large" />
           </Grid>
           <Grid item xs={12} alignItems="center">
             <Typography variant="h6" align="center">

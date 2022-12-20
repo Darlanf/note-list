@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect } from 'react';
 import { Button, Grid, Paper } from '@mui/material';
+import LogoutIcon from '@mui/icons-material/Logout';
 import FormNote from '../components/FormNote/FormNote';
 import { NoteType } from '../types/index';
 import ItemNote from '../components/ItemNote/ItemNote';
@@ -44,9 +45,11 @@ const Home: React.FC = () => {
           </Paper>
         </Grid>
       )}
-      <Button variant="contained" onClick={handleLogOff}>
-        Sair
-      </Button>
+      <Grid item xs={12} display="flex">
+        <Button variant="contained" endIcon={<LogoutIcon />} onClick={handleLogOff}>
+          Sair
+        </Button>
+      </Grid>
     </Grid>
   );
 };

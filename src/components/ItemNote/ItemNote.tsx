@@ -30,7 +30,11 @@ const ItemNote: React.FC<ItemNoteProps> = ({ note }) => {
   const dispatch = useAppDispatch();
 
   const handleDeleteNote = useCallback((note: NoteType) => {
-    dispatch(deleteNote(note.id));
+    const deleted = confirm('Deseja deletar essa nota?');
+    if (deleted) {
+      dispatch(deleteNote(note.id));
+      alert('Nota apagada!');
+    }
   }, []);
 
   const openEditModal = useCallback((note: NoteType) => {
@@ -40,6 +44,14 @@ const ItemNote: React.FC<ItemNoteProps> = ({ note }) => {
   }, []);
 
   const handleEditNote = () => {
+    if (!editDetail || editDetail.length < 3) {
+      alert('Detalhe inválido! \nPreencha com pelo menos 3 caractéres');
+      return;
+    }
+    if (!editDescription || editDescription.length < 3) {
+      alert('Descrição inválida! \nPreencha com pelo menos 3 caractéres');
+      return;
+    }
     dispatch(
       updateNote({
         id: note.id,
@@ -49,6 +61,7 @@ const ItemNote: React.FC<ItemNoteProps> = ({ note }) => {
         }
       })
     );
+    alert('Nota editada!');
     setOpenEdit(false);
   };
 

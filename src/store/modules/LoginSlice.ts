@@ -15,7 +15,6 @@ const loginSlice = createSlice({
   reducers: {
     register(state, action: PayloadAction<LoginType>) {
       const index = state.userList.findIndex(item => item.email === action.payload.email);
-
       if (index === -1) {
         state.userList.push(action.payload);
         return state;
