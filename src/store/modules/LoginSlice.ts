@@ -1,11 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import LoginType from '../../types/LoginType';
 
-const initialState: LoginType = {
-  email: '',
-  password: '',
-  confirmPassword: '',
-  logged: false
+interface Users {
+  userList: LoginType[];
+}
+
+const initialState: Users = {
+  userList: []
 };
 
 const loginSlice = createSlice({
@@ -13,17 +14,26 @@ const loginSlice = createSlice({
   initialState,
   reducers: {
     register(state, action: PayloadAction<LoginType>) {
-      return action.payload;
+      const index = state.userList.findIndex(item => item.email === action.payload.email);
+
+      if (index === -1) {
+        state.userList.push(action.payload);
+        return state;
+      }
+      return state;
     },
-    login(state) {
-      state.logged = true;
+    login(state, action: PayloadAction<string>) {
+      const user = state.userList.findIndex(user => user.email === action.payload);
+      if (user !== -1) {
+        state.userList[user].logged = true;
+      }
     },
     logoff(state) {
-      state.logged = false;
+      const user = state.userList.findIndex(user => user.logged);
+      if (user !== -1) {
+        state.userList[user].logged = false;
+      }
     }
-    // logoff() {
-    //   return initialState;
-    // }
   }
 });
 

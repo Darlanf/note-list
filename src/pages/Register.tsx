@@ -10,11 +10,13 @@ const Register: React.FC = () => {
   const [password, setPassword] = useState<string>('');
   const [confirmPassword, setconfirmPassword] = useState<string>('');
   const loginRedux = useAppSelector(state => state.login);
+  const userLogged = loginRedux.userList.findIndex(user => user.logged);
+
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (loginRedux.logged) {
+    if (userLogged !== -1) {
       navigate('/');
     }
   }, [loginRedux, navigate]);
@@ -86,7 +88,7 @@ const Register: React.FC = () => {
                   Cadastrar
                 </Button>
                 <Button variant="text" onClick={handleToLogin}>
-                  Já possui conta? Faça login
+                  Já possui conta? Faça login!
                 </Button>
               </Grid>
             </Grid>
