@@ -9,22 +9,25 @@ const Login: React.FC = () => {
   const [email, setMail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const loginRedux = useAppSelector(state => state.login);
-  console.log(loginRedux);
-
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (loginRedux.logged) {
+    const userLogged = loginRedux.userList.findIndex(user => user.logged);
+    if (userLogged !== -1) {
       navigate('/');
     }
   }, [loginRedux, navigate]);
 
   const handleLogin = () => {
-    if (email.length < 6 || password.length < 6 || email !== loginRedux.email || password !== loginRedux.password) {
+    if (email.length < 6 || password.length < 6) {
       alert('Preencha os campos corretamente ou crie uma nova conta');
     } else {
-      dispatch(login());
+      const userExist = loginRedux.userList.findIndex(user => user.email === email);
+      if (userExist === -1) return alert('Usuario não encontrado');
+      const isPasswordOk = loginRedux.userList[userExist].password === password;
+      if (!isPasswordOk) return alert('Senha incorreta');
+      dispatch(login(email));
       navigate('/');
     }
   };

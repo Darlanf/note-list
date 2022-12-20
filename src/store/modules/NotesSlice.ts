@@ -12,9 +12,7 @@ export const { selectAll: selectNotes, selectById: selectNoteById } = adapter.ge
 
 const notesSlice = createSlice({
   name: 'notes',
-  initialState: adapter.getInitialState({
-    // status: ''
-  }),
+  initialState: adapter.getInitialState({}),
   reducers: {
     addNote: adapter.addOne,
     addMany: adapter.addMany,
@@ -24,5 +22,5 @@ const notesSlice = createSlice({
   }
 });
 
-export const { addNote, addMany, deleteNote, updateNote } = notesSlice.actions;
+export const { addNote, addMany, deleteNote, updateNote, deleteNotes } = notesSlice.actions;
 export default notesSlice.reducer;
