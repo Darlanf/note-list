@@ -48,6 +48,7 @@ const FormNote: React.FC<FormNoteProps> = ({ action }) => {
           value={detail || ''}
           variant="outlined"
           inputRef={inputDetail}
+          inputProps={{ maxLength: 200 }}
           fullWidth
         />
       </Grid>
@@ -59,6 +60,7 @@ const FormNote: React.FC<FormNoteProps> = ({ action }) => {
           value={description || ''}
           variant="outlined"
           inputRef={inputDescription}
+          inputProps={{ maxLength: 300 }}
           fullWidth
         />
       </Grid>

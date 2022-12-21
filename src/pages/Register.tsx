@@ -59,6 +59,7 @@ const Register: React.FC = () => {
               onChange={ev => setMail(ev.target.value)}
               label="Email"
               value={email || ''}
+              type="email"
               variant="outlined"
               fullWidth
             />
@@ -69,6 +70,7 @@ const Register: React.FC = () => {
               onChange={ev => setPassword(ev.target.value)}
               label="Senha"
               value={password || ''}
+              type="password"
               variant="outlined"
               fullWidth
             />
@@ -79,6 +81,7 @@ const Register: React.FC = () => {
               onChange={ev => setconfirmPassword(ev.target.value)}
               label="Confirme sua Senha"
               value={confirmPassword || ''}
+              type="password"
               variant="outlined"
               fullWidth
             />

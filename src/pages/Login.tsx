@@ -53,6 +53,7 @@ const Login: React.FC = () => {
               id="outlined-basic"
               onChange={ev => setMail(ev.target.value)}
               label="Login"
+              type="email"
               value={email || ''}
               variant="outlined"
               fullWidth
@@ -63,6 +64,7 @@ const Login: React.FC = () => {
               id="outlined-basic"
               onChange={ev => setPassword(ev.target.value)}
               label="Senha"
+              type="password"
               value={password || ''}
               variant="outlined"
               fullWidth

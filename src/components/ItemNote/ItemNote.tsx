@@ -97,6 +97,7 @@ const ItemNote: React.FC<ItemNoteProps> = ({ note }) => {
             type="text"
             value={editDetail || ''}
             onChange={ev => setDetail(ev.target.value)}
+            inputProps={{ maxLength: 200 }}
             fullWidth
             variant="outlined"
           />
@@ -108,6 +109,7 @@ const ItemNote: React.FC<ItemNoteProps> = ({ note }) => {
             type="text"
             value={editDescription || ''}
             onChange={ev => setDescription(ev.target.value)}
+            inputProps={{ maxLength: 300 }}
             fullWidth
             variant="outlined"
           />
