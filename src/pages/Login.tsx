@@ -50,7 +50,7 @@ const Login: React.FC = () => {
           </Grid>
           <Grid item xs={12}>
             <TextField
-              id="outlined-basic"
+              id="outlined-email"
               onChange={ev => setMail(ev.target.value)}
               label="Login"
               type="email"
@@ -61,7 +61,7 @@ const Login: React.FC = () => {
           </Grid>
           <Grid item xs={12}>
             <TextField
-              id="outlined-basic"
+              id="outlined-Password"
               onChange={ev => setPassword(ev.target.value)}
               label="Senha"
               type="password"

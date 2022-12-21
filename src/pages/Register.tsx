@@ -55,7 +55,7 @@ const Register: React.FC = () => {
           </Grid>
           <Grid item xs={12}>
             <TextField
-              id="outlined-basic"
+              id="email-basic"
               onChange={ev => setMail(ev.target.value)}
               label="Email"
               value={email || ''}
@@ -66,7 +66,7 @@ const Register: React.FC = () => {
           </Grid>
           <Grid item xs={12}>
             <TextField
-              id="outlined-basic"
+              id="password-basic"
               onChange={ev => setPassword(ev.target.value)}
               label="Senha"
               value={password || ''}
@@ -77,7 +77,7 @@ const Register: React.FC = () => {
           </Grid>
           <Grid item xs={12}>
             <TextField
-              id="outlined-basic"
+              id="confirmPassword-basic"
               onChange={ev => setconfirmPassword(ev.target.value)}
               label="Confirme sua Senha"
               value={confirmPassword || ''}

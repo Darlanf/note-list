@@ -31,7 +31,6 @@ const Home: React.FC = () => {
   const handleAddNote = useCallback((note: NoteType) => {
     dispatch(addNote(note));
   }, []);
-  console.log(userNote.length);
 
   return (
     <>
