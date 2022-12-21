@@ -30,13 +30,14 @@ const Home: React.FC = () => {
   const handleAddNote = useCallback((note: NoteType) => {
     dispatch(addNote(note));
   }, []);
+  console.log(userNote.length);
 
   return (
     <Grid container spacing={2}>
       <Grid item xs={12}>
         <FormNote action={handleAddNote} />
       </Grid>
-      {userNote && (
+      {userNote.length && (
         <Grid item xs={12}>
           <Paper elevation={2} sx={{ padding: '5px' }}>
             {userNote.map(item => {
