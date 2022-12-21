@@ -3,7 +3,7 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import NotesCounter from './NotesCounter';
+import NotesCounter from '../NotesCounter/NotesCounter';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 
 function ResponsiveAppBar() {

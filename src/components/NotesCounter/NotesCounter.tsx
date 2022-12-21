@@ -1,8 +1,8 @@
 import React from 'react';
 import Badge from '@mui/material/Badge';
 import FormatListNumberedRtlIcon from '@mui/icons-material/FormatListNumberedRtl';
-import { useAppSelector } from '../store/hooks';
-import { selectNotes } from '../store/modules/NotesSlice';
+import { useAppSelector } from '../../store/hooks';
+import { selectNotes } from '../../store/modules/NotesSlice';
 
 const NotesCounter: React.FC = () => {
   const notesRedux = useAppSelector(selectNotes);

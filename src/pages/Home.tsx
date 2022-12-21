@@ -8,7 +8,7 @@ import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { useNavigate } from 'react-router-dom';
 import { addNote, selectNotes } from '../store/modules/NotesSlice';
 import { logoff } from '../store/modules/LoginSlice';
-import ResponsiveAppBar from '../components/ResponsiveAppBar';
+import ResponsiveAppBar from '../components/ResponsiveAppBar/ResponsiveAppBar';
 
 const Home: React.FC = () => {
   const notesRedux = useAppSelector(selectNotes);
