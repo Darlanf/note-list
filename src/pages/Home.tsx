@@ -8,6 +8,7 @@ import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { useNavigate } from 'react-router-dom';
 import { addNote, selectNotes } from '../store/modules/NotesSlice';
 import { logoff } from '../store/modules/LoginSlice';
+import ResponsiveAppBar from '../components/ResponsiveAppBar';
 
 const Home: React.FC = () => {
   const notesRedux = useAppSelector(selectNotes);
@@ -33,25 +34,28 @@ const Home: React.FC = () => {
   console.log(userNote.length);
 
   return (
-    <Grid container spacing={2}>
-      <Grid item xs={12}>
-        <FormNote action={handleAddNote} />
-      </Grid>
-      {userNote.length && (
+    <>
+      <ResponsiveAppBar />
+      <Grid container spacing={2}>
         <Grid item xs={12}>
-          <Paper elevation={2} sx={{ padding: '5px' }}>
-            {userNote.map(item => {
-              return <ItemNote key={item.id} note={item} />;
-            })}
-          </Paper>
+          <FormNote action={handleAddNote} />
         </Grid>
-      )}
-      <Grid item xs={12} display="flex">
-        <Button variant="contained" endIcon={<LogoutIcon />} onClick={handleLogOff}>
-          Sair
-        </Button>
+        {userNote.length && (
+          <Grid item xs={12}>
+            <Paper elevation={2} sx={{ padding: '5px' }}>
+              {userNote.map(item => {
+                return <ItemNote key={item.id} note={item} />;
+              })}
+            </Paper>
+          </Grid>
+        )}
+        <Grid item xs={12} display="flex">
+          <Button variant="contained" endIcon={<LogoutIcon />} onClick={handleLogOff}>
+            Sair
+          </Button>
+        </Grid>
       </Grid>
-    </Grid>
+    </>
   );
 };
 
