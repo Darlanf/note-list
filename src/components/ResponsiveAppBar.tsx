@@ -32,6 +32,29 @@ function ResponsiveAppBar() {
           >
             GrowNotes
           </Typography>
+
+          <AssignmentIcon
+            sx={{
+              display: { xs: 'flex', md: 'none' },
+              mr: 1
+            }}
+          />
+          <Typography
+            variant="h5"
+            noWrap
+            sx={{
+              mr: 2,
+              display: { xs: 'flex', md: 'none' },
+              flexGrow: 1,
+              flex: 1,
+              fontWeight: 700,
+              letterSpacing: '.3rem',
+              color: 'inherit',
+              textDecoration: 'none'
+            }}
+          >
+            GrowNotes
+          </Typography>
           <NotesCounter />
         </Toolbar>
       </Container>
