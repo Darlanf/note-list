@@ -17,9 +17,12 @@ const loginSlice = createSlice({
       const index = state.userList.findIndex(item => item.email === action.payload.email);
       if (index === -1) {
         state.userList.push(action.payload);
+        alert('Usuário cadastrado');
+        return state;
+      } else {
+        alert('Usuário já existe');
         return state;
       }
-      return state;
     },
     login(state, action: PayloadAction<string>) {
       const user = state.userList.findIndex(user => user.email === action.payload);
