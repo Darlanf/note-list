@@ -25,7 +25,10 @@ const Home: React.FC = () => {
   }, [loginRedux, navigate]);
 
   const handleLogOff = () => {
-    dispatch(logoff());
+    const logOut = confirm('Deseja realmente sair?');
+    if (logOut) {
+      dispatch(logoff());
+    }
   };
 
   const handleAddNote = useCallback((note: NoteType) => {
